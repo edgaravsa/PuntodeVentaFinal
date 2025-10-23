@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Employees.EmployeeView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Empleados" FontSize="28" FontWeight="Bold" Margin="0,0,0,18"/>
+    <StackPanel Orientation="Horizontal" Spacing="32">
+      <!-- Listado -->
+      <StackPanel Width="500">
+        <TextBox Watermark="Buscar empleado..." FontSize="18" Height="36" Margin="0,0,0,8"/>
+        <ListBox Items="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}" Height="520">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Name}" FontSize="18" Width="140"/>
+                <TextBlock Text="{Binding EmployeeNumber}" FontSize="16" Width="60"/>
+                <TextBlock Text="{Binding Username}" FontSize="16" Width="100"/>
+                <TextBlock Text="{Binding Role}" FontSize="16" Width="100"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+      <!-- Formulario alta/edición -->
+      <StackPanel Width="420">
+        <TextBlock Text="Alta / Edición" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock Text="Número:" FontWeight="SemiBold"/>
+        <NumericUpDown Value="{Binding EmployeeNumber, Mode=TwoWay}" FontSize="18" Height="36" Minimum="1" Maximum="9999"/>
+
+        <TextBlock Text="Nombre:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Name, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Usuario:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Username, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Rol:" FontWeight="SemiBold"/>
+        <ComboBox SelectedItem="{Binding Role, Mode=TwoWay}" FontSize="18" Height="36">
+          <ComboBox.Items>
+            <x:Static Member="local:EmployeeRole.Administrator"/>
+            <x:Static Member="local:EmployeeRole.Manager"/>
+            <x:Static Member="local:EmployeeRole.Cashier"/>
+          </ComboBox.Items>
+        </ComboBox>
+
+        <TextBlock Text="Contraseña:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Password, Mode=TwoWay}" FontSize="18" Height="36" PasswordChar="●"/>
+
+        <TextBlock Text="Confirmar contraseña:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay}" FontSize="18" Height="36" PasswordChar="●"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="16" Margin="0,16,0,0">
+          <Button Content="Agregar" Command="{Binding AddEmployeeCommand}" FontSize="18" Height="44"/>
+          <Button Content="Editar" Command="{Binding EditEmployeeCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedEmployee, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Eliminar" Command="{Binding DeleteEmployeeCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedEmployee, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Limpiar" Command="{Binding ClearFormCommand}" FontSize="18" Height="44"/>
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

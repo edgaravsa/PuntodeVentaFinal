@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.AuditLog.AuditLogView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Historial de Auditoría" FontSize="22" FontWeight="Bold"/>
+    <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,0,0,8">
+      <TextBox Watermark="Usuario" Width="120" Text="{Binding FilterUser, Mode=TwoWay}"/>
+      <TextBox Watermark="Módulo" Width="100" Text="{Binding FilterModule, Mode=TwoWay}"/>
+      <TextBox Watermark="Acción" Width="100" Text="{Binding FilterAction, Mode=TwoWay}"/>
+      <DatePicker Watermark="Desde" Width="150" SelectedDate="{Binding FilterFromDate, Mode=TwoWay}"/>
+      <DatePicker Watermark="Hasta" Width="150" SelectedDate="{Binding FilterToDate, Mode=TwoWay}"/>
+      <Button Content="Buscar" Command="{Binding SearchCommand}" Width="80"/>
+      <Button Content="Exportar" Command="{Binding ExportCommand}" Width="80"/>
+    </StackPanel>
+    <DataGrid Items="{Binding Logs}" AutoGenerateColumns="False" Height="500">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Fecha/Hora" Binding="{Binding Timestamp}" Width="160"/>
+        <DataGridTextColumn Header="Usuario" Binding="{Binding UserId}" Width="140"/>
+        <DataGridTextColumn Header="Módulo" Binding="{Binding Module}" Width="120"/>
+        <DataGridTextColumn Header="Acción" Binding="{Binding Action}" Width="120"/>
+        <DataGridTextColumn Header="Detalle" Binding="{Binding Details}" Width="*"/>
+      </DataGrid.Columns>
+    </DataGrid>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,8,0,0">
+      <Button Content="Anterior" Command="{Binding PrevPageCommand}" IsEnabled="{Binding CurrentPage, Converter={StaticResource GreaterThanOneConverter}}" />
+      <TextBlock Text="{Binding CurrentPage}" FontWeight="Bold" FontSize="16" Margin="4,0"/>
+      <TextBlock Text="de" FontWeight="Bold" FontSize="16" Margin="4,0"/>
+      <TextBlock Text="{Binding TotalPages}" FontWeight="Bold" FontSize="16" Margin="4,0"/>
+      <Button Content="Siguiente" Command="{Binding NextPageCommand}" IsEnabled="{Binding CurrentPage, Converter={StaticResource LessThanTotalPagesConverter}, ConverterParameter={Binding TotalPages}}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

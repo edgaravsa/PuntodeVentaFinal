@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- Colores base -->
+  <Color x:Key="BackgroundColor">#FFFFFFFF</Color>
+  <Color x:Key="TextColor">#FF222222</Color>
+  <Color x:Key="PrimaryAccent">#FF2196F3</Color>
+  <Color x:Key="SecondaryAccent">#FF90CAF9</Color>
+  <Color x:Key="WarningColor">#FFFF9800</Color>
+  <Color x:Key="ErrorColor">#FFF44336</Color>
+  <!-- Alto contraste -->
+  <Color x:Key="HighContrastBackgroundColor">#FFFFFFFF</Color>
+  <Color x:Key="HighContrastTextColor">#FF000000</Color>
+  <!-- Fuente -->
+  <Double x:Key="BaseFontSize">18</Double>
+  <!-- Estilos principales -->
+  <Style Selector="Window, UserControl">
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+  </Style>
+  <Style Selector="TextBlock, TextBox, Button, ComboBox, NumericUpDown">
+    <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+  </Style>
+  <Style Selector="Button">
+    <Setter Property="Background" Value="{DynamicResource PrimaryAccent}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+  </Style>
+  <Style Selector="GroupBox">
+    <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+    <Setter Property="Background" Value="{DynamicResource SecondaryAccent}"/>
+  </Style>
+  <Style Selector="TextBlock.warning">
+    <Setter Property="Foreground" Value="{DynamicResource WarningColor}"/>
+  </Style>
+  <Style Selector="TextBlock.error">
+    <Setter Property="Foreground" Value="{DynamicResource ErrorColor}"/>
+  </Style>
+</ResourceDictionary>

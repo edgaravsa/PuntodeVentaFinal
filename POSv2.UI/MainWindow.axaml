@@ -1,0 +1,4 @@
+<Button Content="Usuarios"
+        Command="{Binding ShowUsersCommand}"
+        IsEnabled="{Binding ShowUsersCommand.CanExecute(null)}"
+        Visibility="{Binding CurrentUser.Role, Converter={StaticResource IsAdminVisibilityConverter}}" />

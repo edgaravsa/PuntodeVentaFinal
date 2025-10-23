@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Returns.ReturnsView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Devoluciones y Cancelaciones" FontSize="{DynamicResource BaseFontSize}" FontWeight="Bold"/>
+    <StackPanel Orientation="Horizontal" Spacing="32">
+      <!-- Listado de órdenes -->
+      <StackPanel Width="520">
+        <TextBox Watermark="Buscar ticket/orden..." FontSize="{DynamicResource BaseFontSize}" Height="36"/>
+        <ListBox Items="{Binding Orders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" Height="420">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Id}" Width="80"/>
+                <TextBlock Text="{Binding Date}" Width="110"/>
+                <TextBlock Text="{Binding Client.Name}" Width="120"/>
+                <TextBlock Text="{Binding Total}" Width="80"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+
+      <!-- Formulario devolución/cancelación -->
+      <StackPanel Width="480">
+        <TextBlock Text="Tipo de operación:" FontWeight="SemiBold"/>
+        <StackPanel Orientation="Horizontal" Spacing="14">
+          <RadioButton Content="Cancelación total" IsChecked="{Binding IsCancellation, Mode=TwoWay}" />
+          <RadioButton Content="Devolución parcial" IsChecked="{Binding IsCancellation, Mode=TwoWay, Converter={StaticResource InverseBoolConverter}}" />
+        </StackPanel>
+        <TextBlock Text="Motivo:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Reason, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" Height="36"/>
+
+        <!-- Si devolución parcial: lista de productos seleccionables -->
+        <ItemsControl Items="{Binding SelectedOrder.Items}" IsVisible="{Binding IsCancellation, Converter={StaticResource InverseBoolConverter}}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="{Binding Product.Name}" Width="120"/>
+                <NumericUpDown Value="{Binding QuantityToReturn}" Minimum="0" Maximum="{Binding Quantity}" Width="60"/>
+              </StackPanel>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Button Content="Registrar operación" Command="{Binding DoReturnOrCancelCommand}" FontSize="{DynamicResource BaseFontSize}" Height="44" Margin="0,16,0,0"/>
+        <TextBlock Text="{Binding Message}" FontWeight="Bold" Foreground="Green"/>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

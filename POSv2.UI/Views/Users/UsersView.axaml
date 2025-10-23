@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Users.UsersView">
+  <StackPanel Margin="24" Spacing="16">
+    <TextBlock Text="Gestión de Usuarios" FontSize="20" FontWeight="Bold"/>
+    <DataGrid Items="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}" AutoGenerateColumns="False" Height="300">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Usuario" Binding="{Binding Username}" Width="120"/>
+        <DataGridTextColumn Header="Nombre Completo" Binding="{Binding FullName}" Width="160"/>
+        <DataGridTextColumn Header="Rol" Binding="{Binding Role}" Width="100"/>
+        <DataGridCheckBoxColumn Header="Activo" Binding="{Binding IsActive}" Width="80"/>
+      </DataGrid.Columns>
+    </DataGrid>
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <TextBox Watermark="Usuario" Width="120" Text="{Binding NewUsername, Mode=TwoWay}"/>
+      <TextBox Watermark="Nombre Completo" Width="160" Text="{Binding NewFullName, Mode=TwoWay}"/>
+      <PasswordBox Watermark="Contraseña" Width="120" Password="{Binding NewPassword, Mode=TwoWay}"/>
+      <ComboBox Width="120" Items="Cajero,Gerente,Administrador" SelectedItem="{Binding NewRole, Mode=TwoWay}"/>
+      <CheckBox Content="Activo" IsChecked="{Binding NewIsActive, Mode=TwoWay}"/>
+      <Button Content="Agregar" Command="{Binding AddUserCommand}" />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Button Content="Editar" Command="{Binding EditUserCommand}" IsEnabled="{Binding SelectedUser}"/>
+      <Button Content="Eliminar" Command="{Binding DeleteUserCommand}" IsEnabled="{Binding SelectedUser}"/>
+      <PasswordBox Watermark="Nueva Contraseña" Width="120" Password="{Binding NewPassword, Mode=TwoWay}"/>
+      <Button Content="Cambiar Contraseña" Command="{Binding ChangePasswordCommand}" IsEnabled="{Binding SelectedUser}"/>
+      <Button Content="Activar" Command="{Binding ActivateUserCommand}" IsEnabled="{Binding SelectedUser}" />
+      <Button Content="Desactivar" Command="{Binding DeactivateUserCommand}" IsEnabled="{Binding SelectedUser}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

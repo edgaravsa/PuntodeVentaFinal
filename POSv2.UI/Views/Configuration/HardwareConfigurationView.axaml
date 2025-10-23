@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Configuration.HardwareConfigurationView">
+  <GroupBox Header="Integración de Hardware" Margin="0,0,0,12">
+    <StackPanel Spacing="10">
+      <StackPanel Orientation="Horizontal" Spacing="20">
+        <TextBlock Text="Impresora de tickets:" FontWeight="SemiBold" FontSize="{DynamicResource BaseFontSize}" />
+        <ToggleSwitch IsChecked="{Binding UsePrinter, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" />
+        <ComboBox Items="{Binding PrinterModels}" SelectedItem="{Binding SelectedPrinterModel, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" Width="220"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="20">
+        <TextBlock Text="Lector de código de barras:" FontWeight="SemiBold" FontSize="{DynamicResource BaseFontSize}" />
+        <ToggleSwitch IsChecked="{Binding UseBarcodeReader, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" />
+        <ComboBox Items="{Binding BarcodeReaderModels}" SelectedItem="{Binding SelectedBarcodeReaderModel, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" Width="220"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="20">
+        <TextBlock Text="Pantalla cliente:" FontWeight="SemiBold" FontSize="{DynamicResource BaseFontSize}" />
+        <ToggleSwitch IsChecked="{Binding UseCustomerDisplay, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" />
+        <ComboBox Items="{Binding CustomerDisplayModels}" SelectedItem="{Binding SelectedCustomerDisplayModel, Mode=TwoWay}" FontSize="{DynamicResource BaseFontSize}" Width="220"/>
+      </StackPanel>
+      <Button Content="Guardar configuración de hardware"
+              Command="{Binding SaveHardwareConfigCommand}"
+              FontSize="{DynamicResource BaseFontSize}" Height="44" Margin="0,8,0,0"/>
+    </StackPanel>
+  </GroupBox>
+</UserControl>

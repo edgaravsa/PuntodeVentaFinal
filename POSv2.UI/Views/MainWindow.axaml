@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:POSv2.UI.Views"
+        xmlns:vm="clr-namespace:POSv2.UI.ViewModels"
+        Title="POSv2"
+        Width="1280" Height="800"
+        WindowStartupLocation="CenterScreen">
+  <DockPanel>
+    <!-- Barra de menú principal -->
+    <Menu DockPanel.Dock="Top" FontSize="20">
+      <MenuItem Header="Caja" Command="{Binding ShowCashierCommand}" />
+      <MenuItem Header="Productos" Command="{Binding ShowProductsCommand}" />
+      <MenuItem Header="Empleados" Command="{Binding ShowEmployeesCommand}" />
+      <MenuItem Header="Clientes" Command="{Binding ShowClientsCommand}" />
+      <MenuItem Header="Inventario" Command="{Binding ShowInventoryCommand}" />
+      <MenuItem Header="Exportación" Command="{Binding ShowExportCommand}" />
+      <MenuItem Header="Configuración" Command="{Binding ShowConfigurationCommand}" />
+    </Menu>
+    <!-- Panel principal donde se muestra el módulo seleccionado -->
+    <Border Margin="16" Padding="8" Background="#FAFAFA">
+      <ContentControl Content="{Binding CurrentViewModel}" />
+    </Border>
+  </DockPanel>
+</Window>

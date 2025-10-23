@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:POSv2.UI.ViewModels.Cashier"
+             x:Class="POSv2.UI.Views.Cashier.CashierView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Caja" FontSize="28" FontWeight="Bold" Margin="0,0,0,18"/>
+    <StackPanel Orientation="Horizontal" Spacing="32">
+      <!-- Productos disponibles -->
+      <StackPanel Width="520">
+        <TextBlock Text="Productos" FontSize="20" FontWeight="SemiBold"/>
+        <TextBox Watermark="Buscar producto..." FontSize="18" Height="36" Margin="0,8,0,8"/>
+        <ListBox Items="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Name}" FontSize="18" Width="160"/>
+                <TextBlock Text="{Binding PriceWithTax}" FontSize="18" Width="80"/>
+                <Button Content="Agregar" Command="{Binding DataContext.AddToCartCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        CommandParameter="{Binding}">
+                  <Button.DataContext>
+                    <vm:ProductQuantitySelection Product="{Binding}" Quantity="1"/>
+                  </Button.DataContext>
+                </Button>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+      <!-- Carrito -->
+      <StackPanel Width="480">
+        <TextBlock Text="Carrito" FontSize="20" FontWeight="SemiBold"/>
+        <ListBox Items="{Binding Cart}" SelectedItem="{Binding SelectedCartItem}">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Product.Name}" FontSize="18" Width="160"/>
+                <TextBlock Text="{Binding Quantity}" FontSize="18" Width="80"/>
+                <Button Content="Quitar" Command="{Binding DataContext.RemoveFromCartCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+      <!-- Resumen y confirmación -->
+      <StackPanel Width="280">
+        <TextBlock Text="Resumen" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock Text="Subtotal:" FontSize="16"/>
+        <TextBlock Text="{Binding Subtotal}" FontSize="18"/>
+        <TextBlock Text="IVA (16%):" FontSize="16"/>
+        <TextBlock Text="{Binding Tax}" FontSize="18"/>
+        <TextBlock Text="Descuento:" FontSize="16"/>
+        <TextBlock Text="{Binding Discount}" FontSize="18"/>
+        <TextBlock Text="Total:" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Text="{Binding Total}" FontSize="22" FontWeight="Bold"/>
+        <Separator Margin="0,8"/>
+        <TextBlock Text="Pago recibido:" FontSize="16"/>
+        <TextBox Text="{Binding CashReceived, Mode=TwoWay}" FontSize="18" Height="36"/>
+        <TextBlock Text="Cambio:" FontSize="16"/>
+        <TextBlock Text="{Binding Change}" FontSize="18"/>
+        <TextBlock Text="Tipo de pago:" FontSize="16"/>
+        <ComboBox SelectedItem="{Binding SelectedPaymentType, Mode=TwoWay}" FontSize="18" Height="36">
+          <ComboBox.Items>
+            <x:Static Member="local:PaymentType.Cash"/>
+            <x:Static Member="local:PaymentType.Card"/>
+            <x:Static Member="local:PaymentType.Transfer"/>
+          </ComboBox.Items>
+        </ComboBox>
+        <TextBlock Text="Cliente:" FontSize="16"/>
+        <ComboBox Items="{Binding Clients}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}" DisplayMemberPath="Name" FontSize="18" Height="36"/>
+        <Button Content="Confirmar venta" Command="{Binding ConfirmSaleCommand}" FontSize="20" Height="48" Margin="0,24,0,0"/>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

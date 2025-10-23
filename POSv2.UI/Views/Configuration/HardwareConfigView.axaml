@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Configuration.HardwareConfigView">
+  <StackPanel Margin="24" Spacing="16">
+    <TextBlock Text="Configuración de Hardware" FontSize="20" FontWeight="Bold"/>
+    <CheckBox Content="Usar hardware simulado (para pruebas/desarrollo)"
+              IsChecked="{Binding UseSimulatedHardware, Mode=TwoWay}" />
+  </StackPanel>
+</UserControl>

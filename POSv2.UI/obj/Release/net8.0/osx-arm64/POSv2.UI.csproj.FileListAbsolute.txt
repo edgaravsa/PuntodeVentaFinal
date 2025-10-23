@@ -1,0 +1,7 @@
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/POSv2.UI.csproj.AssemblyReference.cache
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/Avalonia/Resources.Inputs.cache
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/Avalonia/resources
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/POSv2.UI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/POSv2.UI.AssemblyInfoInputs.cache
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/POSv2.UI.AssemblyInfo.cs
+/Users/edgaravsa/POSv2/POSv2.UI/obj/Release/net8.0/osx-arm64/POSv2.UI.csproj.CoreCompileInputs.cache

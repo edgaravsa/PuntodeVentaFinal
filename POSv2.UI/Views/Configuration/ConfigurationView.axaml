@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:POSv2.UI.Views.Configuration">
+  <StackPanel Margin="32" Spacing="18">
+    <!-- Otras secciones de configuración -->
+
+    <!-- Hardware Configuración -->
+    <local:HardwareConfigurationView DataContext="{Binding HardwareConfig}" />
+
+    <!-- ...más secciones... -->
+  </StackPanel>
+</UserControl>

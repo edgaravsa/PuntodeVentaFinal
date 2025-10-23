@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Clients.ClientView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Clientes" FontSize="28" FontWeight="Bold" Margin="0,0,0,18"/>
+    <StackPanel Orientation="Horizontal" Spacing="32">
+      <!-- Listado -->
+      <StackPanel Width="500">
+        <TextBox Watermark="Buscar cliente..." FontSize="18" Height="36" Margin="0,0,0,8"/>
+        <ListBox Items="{Binding Clients}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}" Height="520">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Name}" FontSize="18" Width="120"/>
+                <TextBlock Text="{Binding LastName}" FontSize="16" Width="120"/>
+                <TextBlock Text="{Binding ClientNumber}" FontSize="16" Width="60"/>
+                <TextBlock Text="{Binding Phone}" FontSize="16" Width="100"/>
+                <TextBlock Text="{Binding Email}" FontSize="16" Width="160"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+      <!-- Formulario alta/edición -->
+      <StackPanel Width="420">
+        <TextBlock Text="Alta / Edición" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock Text="Número:" FontWeight="SemiBold"/>
+        <NumericUpDown Value="{Binding ClientNumber, Mode=TwoWay}" FontSize="18" Height="36" Minimum="1" Maximum="9999"/>
+
+        <TextBlock Text="Nombre:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Name, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Apellido:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding LastName, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Teléfono:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Phone, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Email:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Email, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="16" Margin="0,16,0,0">
+          <Button Content="Agregar" Command="{Binding AddClientCommand}" FontSize="18" Height="44"/>
+          <Button Content="Editar" Command="{Binding EditClientCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedClient, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Eliminar" Command="{Binding DeleteClientCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedClient, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Limpiar" Command="{Binding ClearFormCommand}" FontSize="18" Height="44"/>
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <StackPanel Spacing="8">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <ComboBox Width="100" Items="CSV,Excel" SelectedItem="{Binding SelectedFormat, Mode=TwoWay}" />
+      <Button Content="Exportar" Command="{Binding ExportCommand}" />
+    </StackPanel>
+    <DataGrid Items="{Binding Items}">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+        <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" />
+        <!-- Agrega aquí otras columnas según tus datos -->
+      </DataGrid.Columns>
+    </DataGrid>
+  </StackPanel>
+</UserControl>

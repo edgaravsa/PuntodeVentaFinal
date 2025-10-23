@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.HardwareConfigView">
+  <StackPanel Margin="24" Spacing="16">
+    <!-- ... impresora y scanner -->
+    <Separator Margin="0,16,0,8"/>
+    <TextBlock Text="Configuración de Display" FontWeight="Bold" FontSize="16"/>
+    <ComboBox Items="Simulador" SelectedItem="{Binding SelectedDisplayType, Mode=TwoWay}" Width="180"/>
+    <TextBox Text="{Binding DisplayTestText, Mode=TwoWay}" Watermark="Texto a mostrar" Width="220"/>
+    <Button Content="Test Display" Command="{Binding TestDisplayCommand}" Width="120"/>
+    <TextBlock Text="{Binding DisplayStatus}" Margin="8,8,0,0"/>
+  </StackPanel>
+</UserControl>

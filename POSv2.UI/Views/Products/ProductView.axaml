@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Products.ProductView">
+  <StackPanel Margin="32" Spacing="20">
+    <TextBlock Text="Productos" FontSize="28" FontWeight="Bold" Margin="0,0,0,18"/>
+    <StackPanel Orientation="Horizontal" Spacing="32">
+      <!-- Listado de productos -->
+      <StackPanel Width="500">
+        <TextBox Watermark="Buscar producto..." FontSize="18" Height="36" Margin="0,0,0,8"/>
+        <ListBox Items="{Binding Products}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" Height="520">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="{Binding Name}" FontSize="18" Width="120"/>
+                <TextBlock Text="{Binding SKU}" FontSize="16" Width="80"/>
+                <TextBlock Text="{Binding Category}" FontSize="16" Width="80"/>
+                <TextBlock Text="{Binding Quantity}" FontSize="16" Width="60"/>
+                <TextBlock Text="{Binding PriceWithTax}" FontSize="16" Width="80"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+      <!-- Formulario de alta/edición -->
+      <StackPanel Width="420">
+        <TextBlock Text="Alta / Edición" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock Text="SKU:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Sku, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Nombre:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Name, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Tamaño:" FontWeight="SemiBold"/>
+        <ComboBox SelectedItem="{Binding Size, Mode=TwoWay}" FontSize="18" Height="36">
+          <ComboBox.Items>
+            <x:Static Member="local:ProductSize.Small"/>
+            <x:Static Member="local:ProductSize.Medium"/>
+            <x:Static Member="local:ProductSize.Large"/>
+          </ComboBox.Items>
+        </ComboBox>
+
+        <TextBlock Text="Descripción:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Description, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Categoría:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Category, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Unidad:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding Unit, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Cantidad:" FontWeight="SemiBold"/>
+        <NumericUpDown Value="{Binding Quantity, Mode=TwoWay}" FontSize="18" Height="36" Minimum="1" Maximum="9999"/>
+
+        <TextBlock Text="Precio con IVA:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding PriceWithTax, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <TextBlock Text="Imagen:" FontWeight="SemiBold"/>
+        <TextBox Text="{Binding ImagePath, Mode=TwoWay}" FontSize="18" Height="36"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="16" Margin="0,16,0,0">
+          <Button Content="Agregar" Command="{Binding AddProductCommand}" FontSize="18" Height="44"/>
+          <Button Content="Editar" Command="{Binding EditProductCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedProduct, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Eliminar" Command="{Binding DeleteProductCommand}" FontSize="18" Height="44" IsEnabled="{Binding SelectedProduct, Converter={StaticResource NullToBoolConverter}}"/>
+          <Button Content="Limpiar" Command="{Binding ClearFormCommand}" FontSize="18" Height="44"/>
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

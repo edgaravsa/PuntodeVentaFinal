@@ -1,0 +1,29 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:POSv2.UI.ViewModels"
+             xmlns:views="clr-namespace:POSv2.UI.Views"
+             x:Class="POSv2.UI.App">
+  <Application.DataTemplates>
+    <DataTemplate DataType="vm:CashierViewModel">
+      <views:CashierView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:ProductViewModel">
+      <views:ProductView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:EmployeeViewModel">
+      <views:EmployeeView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:ClientViewModel">
+      <views:ClientView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:ConfigurationViewModel">
+      <views:ConfigurationView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:ExportViewModel">
+      <views:ExportView />
+    </DataTemplate>
+    <DataTemplate DataType="vm:InventoryViewModel">
+      <views:InventoryView />
+    </DataTemplate>
+  </Application.DataTemplates>
+</Application>

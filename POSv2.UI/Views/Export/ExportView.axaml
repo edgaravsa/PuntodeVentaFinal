@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="POSv2.UI.Views.Export.ExportView">
+  <StackPanel Margin="24" Spacing="16">
+    <TextBlock Text="Exportar información" FontSize="20" FontWeight="Bold"/>
+    <ComboBox Width="180"
+              Items="Ventas,Productos,Empleados,Auditoría,Clientes,Devoluciones"
+              SelectedItem="{Binding SelectedBase, Mode=TwoWay}" />
+    <!-- Filtros dinámicos -->
+    <ContentControl Content="{Binding SelectedBase}">
+      <ContentControl.ContentTemplate>
+        <DataTemplate DataType="Ventas">
+          <StackPanel>
+            <DatePicker Watermark="Fecha inicio" SelectedDate="{Binding FiltroFechaInicio}" />
+            <DatePicker Watermark="Fecha fin" SelectedDate="{Binding FiltroFechaFin}" />
+            <TextBox Watermark="Usuario/cajero" Text="{Binding FiltroUsuario}" />
+            <ComboBox Watermark="Método de pago" Items="Efectivo,Tarjeta,Transferencia" SelectedItem="{Binding FiltroMetodoPago}" />
+            <TextBox Watermark="Monto mínimo" Text="{Binding FiltroMontoMin}" />
+            <TextBox Watermark="Monto máximo" Text="{Binding FiltroMontoMax}" />
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="Productos">
+          <StackPanel>
+            <ComboBox Watermark="Categoría" Items="{Binding Categorias}" SelectedItem="{Binding FiltroCategoria}" />
+            <ComboBox Watermark="Estado" Items="Activo,Inactivo" SelectedItem="{Binding FiltroEstado}" />
+            <TextBox Watermark="Stock mínimo" Text="{Binding FiltroStockMin}" />
+            <TextBox Watermark="Stock máximo" Text="{Binding FiltroStockMax}" />
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="Empleados">
+          <StackPanel>
+            <ComboBox Watermark="Rol" Items="Administrador,Gerente,Cajero" SelectedItem="{Binding FiltroRol}" />
+            <ComboBox Watermark="Estado" Items="Activo,Inactivo" SelectedItem="{Binding FiltroEstado}" />
+            <TextBox Watermark="Usuario" Text="{Binding FiltroUsuario}" />
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="Auditoría">
+          <StackPanel>
+            <DatePicker Watermark="Fecha inicio" SelectedDate="{Binding FiltroFechaInicio}" />
+            <DatePicker Watermark="Fecha fin" SelectedDate="{Binding FiltroFechaFin}" />
+            <TextBox Watermark="Usuario" Text="{Binding FiltroUsuario}" />
+            <ComboBox Watermark="Rol" Items="Administrador,Gerente,Cajero" SelectedItem="{Binding FiltroRol}" />
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="Clientes">
+          <StackPanel>
+            <ComboBox Watermark="Estado" Items="Activo,Inactivo" SelectedItem="{Binding FiltroEstado}" />
+            <TextBox Watermark="Nombre/usuario" Text="{Binding FiltroUsuario}" />
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="Devoluciones">
+          <StackPanel>
+            <DatePicker Watermark="Fecha inicio" SelectedDate="{Binding FiltroFechaInicio}" />
+            <DatePicker Watermark="Fecha fin" SelectedDate="{Binding FiltroFechaFin}" />
+            <TextBox Watermark="Usuario/cajero" Text="{Binding FiltroUsuario}" />
+            <TextBox Watermark="Monto mínimo" Text="{Binding FiltroMontoMin}" />
+            <TextBox Watermark="Monto máximo" Text="{Binding FiltroMontoMax}" />
+          </StackPanel>
+        </DataTemplate>
+      </ContentControl.ContentTemplate>
+    </ContentControl>
+    <Button Content="Cargar" Command="{Binding LoadCommand}" />
+    <DataGrid Items="{Binding Items}" AutoGenerateColumns="True" Height="300"/>
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <ComboBox Width="100" Items="CSV,Excel" SelectedItem="{Binding SelectedFormat, Mode=TwoWay}" />
+      <Button Content="Exportar" Command="{Binding ExportCommand}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>
