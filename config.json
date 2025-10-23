@@ -1,0 +1,8 @@
+{
+  "BranchName": "Central Branch",
+  "DatabasePath": "C:\\POSv2\\Data\\posv2_central.db",
+  "Currency": "MXN",
+  "DecimalFormat": "dot",
+  "TimeZone": "America/Mexico_City",
+  "Language": "es-ES"
+}
