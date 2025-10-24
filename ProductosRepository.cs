@@ -15,4 +15,10 @@ public class ProductosRepository : IProductosRepository
             query = query.Where(p => p.Stock <= stockMax.Value);
         return query.ToList();
     }
+
+    // Agrega este método aquí dentro
+    public Producto BuscarPorCodigo(string code)
+    {
+        return productos.FirstOrDefault(p => p.CodigoBarra == code);
+    }
 }
