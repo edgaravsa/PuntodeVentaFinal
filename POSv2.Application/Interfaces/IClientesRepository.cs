@@ -1,7 +1,10 @@
-public interface IClientesRepository
+namespace POSv2.Application.Interfaces
 {
-    IEnumerable<Cliente> GetFiltered(
-        string estado,
-        string usuario);
-    // ... otros métodos
+    public interface IClientesRepository
+    {
+        IEnumerable<Cliente> GetFiltered(
+            string estado,
+            string usuario);
+        // ... otros métodos
+    }
 }
