@@ -1,6 +1,9 @@
-public interface IAuthenticationService
+namespace POSv2.Application.Interfaces
 {
-    string HashPassword(string password);
-    bool VerifyPassword(string password, string passwordHash);
-    // ... otros métodos
+    public interface IAuthenticationService
+    {
+        string HashPassword(string password);
+        bool VerifyPassword(string password, string passwordHash);
+        // ... otros métodos
+    }
 }
