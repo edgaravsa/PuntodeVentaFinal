@@ -1,9 +1,12 @@
-public interface IProductosRepository
+namespace POSv2.Application.Interfaces
 {
-    IEnumerable<Producto> GetFiltered(
-        string categoria,
-        string estado,
-        int? stockMin,
-        int? stockMax);
-    // ... otros métodos
+    public interface IProductosRepository
+    {
+        IEnumerable<Producto> GetFiltered(
+            string categoria,
+            string estado,
+            int? stockMin,
+            int? stockMax);
+        // ... otros métodos
+    }
 }
