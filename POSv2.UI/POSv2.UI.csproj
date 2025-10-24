@@ -22,6 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Referencias a otros proyectos de la solución -->
+    <ProjectReference Include="..\POSv2.Domain\POSv2.Domain.csproj" />
+    <ProjectReference Include="..\POSv2.Application\POSv2.Application.csproj" />
+    <ProjectReference Include="..\POSv2.Infrastructure\POSv2.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Views/**/*.axaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
