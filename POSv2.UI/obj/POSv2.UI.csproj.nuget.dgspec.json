@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/edgaravsa/POSv2/POSv2.UI/POSv2.UI.csproj": {}
+    "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.UI/POSv2.UI.csproj": {}
   },
   "projects": {
-    "/Users/edgaravsa/POSv2/POSv2.UI/POSv2.UI.csproj": {
+    "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.UI/POSv2.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/edgaravsa/POSv2/POSv2.UI/POSv2.UI.csproj",
+        "projectUniqueName": "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.UI/POSv2.UI.csproj",
         "projectName": "POSv2.UI",
-        "projectPath": "/Users/edgaravsa/POSv2/POSv2.UI/POSv2.UI.csproj",
+        "projectPath": "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.UI/POSv2.UI.csproj",
         "packagesPath": "/Users/edgaravsa/.nuget/packages/",
-        "outputPath": "/Users/edgaravsa/POSv2/POSv2.UI/obj/",
+        "outputPath": "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.UI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/edgaravsa/.nuget/NuGet/NuGet.Config"
@@ -63,6 +63,18 @@
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.4.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.10, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
