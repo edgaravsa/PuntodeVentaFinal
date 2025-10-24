@@ -1,4 +1,7 @@
-public interface IBarcodeReaderService
+namespace POSv2.Application.Interfaces
 {
-    string ReadBarcode();
+    public interface IBarcodeReaderService
+    {
+        string ReadBarcode();
+    }
 }
