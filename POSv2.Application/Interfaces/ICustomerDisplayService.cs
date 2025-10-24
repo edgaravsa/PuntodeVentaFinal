@@ -1,6 +1,9 @@
-public interface ICustomerDisplayService
+namespace POSv2.Application.Interfaces
 {
-    bool IsAvailable { get; }
-    void ShowTotal(decimal total);
-    void ShowMessage(string message);
+    public interface ICustomerDisplayService
+    {
+        bool IsAvailable { get; }
+        void ShowTotal(decimal total);
+        void ShowMessage(string message);
+    }
 }
