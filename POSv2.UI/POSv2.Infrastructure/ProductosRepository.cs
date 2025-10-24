@@ -1,4 +1,7 @@
-public Producto BuscarPorCodigo(string code)
+public class ProductosRepository : IProductosRepository
 {
-    return productos.FirstOrDefault(p => p.CodigoBarra == code);
+    public Producto BuscarPorCodigo(string code)
+    {
+        return productos.FirstOrDefault(p => p.CodigoBarra == code);
+    }
 }
