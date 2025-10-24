@@ -1,8 +1,11 @@
-public interface IEmployeeRepository
+namespace POSv2.Application.Interfaces
 {
-    IEnumerable<Employee> GetFiltered(
-        string rol,
-        string estado,
-        string usuario);
-    // ... otros métodos
+    public interface IEmployeeRepository
+    {
+        IEnumerable<Employee> GetFiltered(
+            string rol,
+            string estado,
+            string usuario);
+        // ... otros métodos
+    }
 }
