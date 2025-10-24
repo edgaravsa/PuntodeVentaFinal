@@ -1,4 +1,7 @@
-public class HardwareConfig
+namespace POSv2.Domain.Entities
 {
-    public bool UseSimulatedHardware { get; set; }
+    public class HardwareConfig
+    {
+        public bool UseSimulatedHardware { get; set; }
+    }
 }
