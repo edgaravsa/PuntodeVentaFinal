@@ -1,5 +1,8 @@
-public interface IExportService
+namespace POSv2.Application.Interfaces
 {
-    void ExportToCsv<T>(IEnumerable<T> data, string filePath);
-    void ExportToExcel<T>(IEnumerable<T> data, string filePath);
+    public interface IExportService
+    {
+        void ExportToCsv<T>(IEnumerable<T> data, string filePath);
+        void ExportToExcel<T>(IEnumerable<T> data, string filePath);
+    }
 }
