@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "s9iNyHwreek=",
+  "success": true,
+  "projectFilePath": "/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Application/POSv2.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/edgaravsa/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

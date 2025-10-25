@@ -1,0 +1,6 @@
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.csproj.AssemblyReference.cache
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.AssemblyInfoInputs.cache
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.AssemblyInfo.cs
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Infrastructure/obj/Debug/net9.0/POSv2.Infrastructure.sourcelink.json

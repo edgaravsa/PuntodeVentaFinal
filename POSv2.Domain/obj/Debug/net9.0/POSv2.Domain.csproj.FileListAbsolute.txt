@@ -1,0 +1,12 @@
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/bin/Debug/net9.0/POSv2.Domain.deps.json
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/bin/Debug/net9.0/POSv2.Domain.dll
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/bin/Debug/net9.0/POSv2.Domain.pdb
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.AssemblyInfoInputs.cache
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.AssemblyInfo.cs
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.csproj.CoreCompileInputs.cache
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.sourcelink.json
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.dll
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/refint/POSv2.Domain.dll
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/POSv2.Domain.pdb
+/Users/edgaravsa/Documents/PuntodeVentaFinal/POSv2.Domain/obj/Debug/net9.0/ref/POSv2.Domain.dll
